@@ -1,0 +1,3 @@
+SRCS = CottonmouthLinearWaveID_cottonmouth_linear_wave_fill_id.cpp CottonmouthLinearWaveID_StateSync_CottonmouthLinearWaveID.cpp
+
+SUBDIRS = 

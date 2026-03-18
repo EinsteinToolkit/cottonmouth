@@ -1,0 +1,4 @@
+implements: CottonmouthDiagLinearWaveID
+inherits: ADMBaseX, Driver, ODESolvers
+USES INCLUDE HEADER: newradx.hxx
+

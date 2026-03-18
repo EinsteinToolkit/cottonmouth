@@ -1,0 +1,7 @@
+REQUIRES Arith Loop CottonmouthDiagLinearWaveID_gen AMReX NewRadX
+
+PROVIDES CottonmouthDiagLinearWaveID_gen
+{
+#   SCRIPT bin/generate.py
+#   LANG python3
+}
