@@ -6,6 +6,8 @@ ActiveThorns = "
   CoordinatesX
   IOUtil
   Multipole
+  CoordBase
+  CartGrid3D
   NewRadX
   ODESolvers
   TmunuBaseX
@@ -17,7 +19,7 @@ $out_every = 2
 
 # Driver
 Cactus::cctk_show_schedule       = yes
-Cactus::presync_mode             = "mixed-error"
+Cactus::presync_mode             = "presync-only"
 CarpetX::verbose                 = yes
 CarpetX::poison_undefined_values = no
 
