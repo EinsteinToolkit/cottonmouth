@@ -4,7 +4,7 @@
 src="https://github.com/eschnett/CarpetX/blob/main/figures/carpetx.png"
 width="200" />
 
-**Cottonmouth** is a [Cactus](https://cactuscode.org/) thorn that implements the BSSNOK equations. It was designed for use with the CarpetX driver and was generated using using [EmitCactus](https://github.com/mmor115/EmitCactus.git).
+**Cottonmouth** is a [Cactus](https://cactuscode.org/) thorn that implements the BSSNOK equations. It was designed for use with the CarpetX driver and was generated using using [the Einstein Engine](https://github.com/max-morris/EinsteinEngine.git).
 
 ## Overview
 
