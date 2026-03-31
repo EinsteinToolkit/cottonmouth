@@ -1,4 +1,4 @@
-from EmitCactus import *
+from EinsteinEngine import *
 from sympy import Rational
 
 ###
@@ -718,6 +718,9 @@ fun_bssn_rhs.add_eqn(
     + evo_shift[ua] * D(trK, la)
 )
 
+fun_bssn_rhs.split_loop()
+# loop 2
+
 fun_bssn_rhs.add_eqn(
     ConfConnect_rhs_tmp[ua],
     - 2 * At[ua, ub] * D(evo_lapse, lb)
@@ -738,7 +741,6 @@ fun_bssn_rhs.add_eqn(
 fun_bssn_rhs.add_eqn(ConfConnect_rhs[ua], ConfConnect_rhs_tmp[ua])
 
 fun_bssn_rhs.split_loop()
-# loop 2
 
 fun_bssn_rhs.add_eqn(
     gt_rhs[la, lb],

@@ -74,14 +74,14 @@ void bssn2adm(CCTK_ARGUMENTS) {
         vreal x549 = pown<vreal>(x548, -1);
         store(kxx, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD00, stencil_idx_0_0_0_VVV) + (access(gtDD00, stencil_idx_0_0_0_VVV) * x550))));
         store(kxy, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD01, stencil_idx_0_0_0_VVV) + (access(gtDD01, stencil_idx_0_0_0_VVV) * x550))));
-        store(kyy, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD11, stencil_idx_0_0_0_VVV) + (access(gtDD11, stencil_idx_0_0_0_VVV) * x550))));
         store(kxz, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD02, stencil_idx_0_0_0_VVV) + (access(gtDD02, stencil_idx_0_0_0_VVV) * x550))));
+        store(kyy, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD11, stencil_idx_0_0_0_VVV) + (access(gtDD11, stencil_idx_0_0_0_VVV) * x550))));
         store(kyz, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD12, stencil_idx_0_0_0_VVV) + (access(gtDD12, stencil_idx_0_0_0_VVV) * x550))));
         store(kzz, stencil_idx_0_0_0_VVV, (x549 * (access(AtDD22, stencil_idx_0_0_0_VVV) + (access(gtDD22, stencil_idx_0_0_0_VVV) * x550))));
         x550 = (access(gtDD00, stencil_idx_0_0_0_VVV) * x549);
         x548 = (access(gtDD01, stencil_idx_0_0_0_VVV) * x549);
-        vreal x553 = (access(gtDD11, stencil_idx_0_0_0_VVV) * x549);
-        vreal x554 = (access(gtDD02, stencil_idx_0_0_0_VVV) * x549);
+        vreal x553 = (access(gtDD02, stencil_idx_0_0_0_VVV) * x549);
+        vreal x554 = (access(gtDD11, stencil_idx_0_0_0_VVV) * x549);
         vreal x555 = (access(gtDD12, stencil_idx_0_0_0_VVV) * x549);
         vreal x556 = (access(gtDD22, stencil_idx_0_0_0_VVV) * x549);
         store(alp, stencil_idx_0_0_0_VVV, access(evo_lapse, stencil_idx_0_0_0_VVV));
@@ -90,8 +90,8 @@ void bssn2adm(CCTK_ARGUMENTS) {
         store(betaz, stencil_idx_0_0_0_VVV, access(evo_shiftU2, stencil_idx_0_0_0_VVV));
         store(gxx, stencil_idx_0_0_0_VVV, x550);
         store(gxy, stencil_idx_0_0_0_VVV, x548);
-        store(gyy, stencil_idx_0_0_0_VVV, x553);
-        store(gxz, stencil_idx_0_0_0_VVV, x554);
+        store(gxz, stencil_idx_0_0_0_VVV, x553);
+        store(gyy, stencil_idx_0_0_0_VVV, x554);
         store(gyz, stencil_idx_0_0_0_VVV, x555);
         store(gzz, stencil_idx_0_0_0_VVV, x556);    
     });
