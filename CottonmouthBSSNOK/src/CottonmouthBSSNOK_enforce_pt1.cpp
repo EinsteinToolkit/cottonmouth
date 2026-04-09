@@ -46,15 +46,15 @@ void enforce_pt1(CCTK_ARGUMENTS) {
         vreal x138 = pow2(access(gtDD12, stencil_idx_0_0_0_VVV));
         vreal x163 = pow2(access(gtDD01, stencil_idx_0_0_0_VVV));
         vreal x43 = pow2(access(gtDD02, stencil_idx_0_0_0_VVV));
-        vreal x927 = pow(static_cast<vreal>(((-1 * access(gtDD00, stencil_idx_0_0_0_VVV) * x138) + (-1 * access(gtDD11, stencil_idx_0_0_0_VVV) * x43) + (-1 * access(gtDD22, stencil_idx_0_0_0_VVV) * x163) + (access(gtDD00, stencil_idx_0_0_0_VVV) * access(gtDD11, stencil_idx_0_0_0_VVV) * access(gtDD22, stencil_idx_0_0_0_VVV)) + (2 * access(gtDD01, stencil_idx_0_0_0_VVV) * access(gtDD02, stencil_idx_0_0_0_VVV) * access(gtDD12, stencil_idx_0_0_0_VVV)))), (-1.0 / 3.0));
-        store(gtDD00, stencil_idx_0_0_0_VVV, (access(gtDD00, stencil_idx_0_0_0_VVV) * x927));
-        store(gtDD01, stencil_idx_0_0_0_VVV, (access(gtDD01, stencil_idx_0_0_0_VVV) * x927));
-        store(gtDD02, stencil_idx_0_0_0_VVV, (access(gtDD02, stencil_idx_0_0_0_VVV) * x927));
-        store(gtDD11, stencil_idx_0_0_0_VVV, (access(gtDD11, stencil_idx_0_0_0_VVV) * x927));
-        store(gtDD12, stencil_idx_0_0_0_VVV, (access(gtDD12, stencil_idx_0_0_0_VVV) * x927));
-        store(gtDD22, stencil_idx_0_0_0_VVV, (access(gtDD22, stencil_idx_0_0_0_VVV) * x927));
+        vreal x943 = pow(static_cast<vreal>(((-1 * access(gtDD00, stencil_idx_0_0_0_VVV) * x138) + (-1 * access(gtDD11, stencil_idx_0_0_0_VVV) * x43) + (-1 * access(gtDD22, stencil_idx_0_0_0_VVV) * x163) + (access(gtDD00, stencil_idx_0_0_0_VVV) * access(gtDD11, stencil_idx_0_0_0_VVV) * access(gtDD22, stencil_idx_0_0_0_VVV)) + (2 * access(gtDD01, stencil_idx_0_0_0_VVV) * access(gtDD02, stencil_idx_0_0_0_VVV) * access(gtDD12, stencil_idx_0_0_0_VVV)))), (-1.0 / 3.0));
         store(evo_lapse, stencil_idx_0_0_0_VVV, max(access(evo_lapse, stencil_idx_0_0_0_VVV), evolved_lapse_floor));
-        store(w, stencil_idx_0_0_0_VVV, max(access(w, stencil_idx_0_0_0_VVV), conformal_factor_floor));    
+        store(w, stencil_idx_0_0_0_VVV, max(access(w, stencil_idx_0_0_0_VVV), conformal_factor_floor));
+        store(gtDD00, stencil_idx_0_0_0_VVV, (access(gtDD00, stencil_idx_0_0_0_VVV) * x943));
+        store(gtDD11, stencil_idx_0_0_0_VVV, (access(gtDD11, stencil_idx_0_0_0_VVV) * x943));
+        store(gtDD22, stencil_idx_0_0_0_VVV, (access(gtDD22, stencil_idx_0_0_0_VVV) * x943));
+        store(gtDD01, stencil_idx_0_0_0_VVV, (access(gtDD01, stencil_idx_0_0_0_VVV) * x943));
+        store(gtDD02, stencil_idx_0_0_0_VVV, (access(gtDD02, stencil_idx_0_0_0_VVV) * x943));
+        store(gtDD12, stencil_idx_0_0_0_VVV, (access(gtDD12, stencil_idx_0_0_0_VVV) * x943));    
     });
     #ifdef __CUDACC__
     nvtxRangeEnd(range);
