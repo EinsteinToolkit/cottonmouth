@@ -13,3 +13,7 @@ Cottonmouth is ready for production.
 ## Getting started
 
 You might want to try take a look at the test parameter file (arrangements/Cottonmouth/CottonmouthBSSNOK/test/qc0.par) to see what it can do.
+
+## Licensing and Attribution
+Cottonmouth was authored by Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
+It is licensed under version 3 of the Affero General Public License (AGPLv3).
