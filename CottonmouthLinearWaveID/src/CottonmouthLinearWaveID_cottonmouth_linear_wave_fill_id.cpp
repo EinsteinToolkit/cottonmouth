@@ -1,3 +1,23 @@
+// Copyright (C) 2026 Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
+// This file is part of Cottonmouth, a suite of astrophysics codes for the Einstein Toolkit.
+// Cottonmouth was created with the Einstein Engine.
+// 
+// Cottonmouth is hosted at: https://github.com/EinsteinToolkit/cottonmouth
+// The Einstein Engine is hosted at: https://github.com/max-morris/EinsteinEngine
+// 
+// Cottonmouth is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// Cottonmouth is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
 #define CARPETX_GF3D5
 #include <cctk.h>
 #include <cctk_Arguments.h>
@@ -12,9 +32,9 @@
 #ifdef __CUDACC__
 #include <nvtx3/nvToolsExt.h>
 #endif
-#define access(GF, IDX) (GF(p.mask, IDX))
-#define store(GF, IDX, VAL) (GF.store(p.mask, IDX, VAL))
-#define stencil(GF, IDX) (GF(p.mask, IDX))
+#define access(GF, IDX) (GF(IDX))
+#define store(GF, IDX, VAL) (GF.store(IDX, VAL))
+#define stencil(GF, IDX) (GF(IDX))
 #define CCTK_ASSERT(X) if(!(X)) { CCTK_Error(__LINE__, __FILE__, CCTK_THORNSTRING, "Assertion Failure: " #X); }
 using namespace Arith;
 using namespace Loop;
@@ -22,8 +42,8 @@ using std::cbrt,std::fmax,std::fmin,std::sqrt;
 void cottonmouth_linear_wave_fill_id(CCTK_ARGUMENTS) {
     DECLARE_CCTK_ARGUMENTSX_cottonmouth_linear_wave_fill_id;
     DECLARE_CCTK_PARAMETERS;
-    using vreal = Arith::simd<CCTK_REAL>;
-    constexpr std::size_t vsize = std::tuple_size_v<vreal>;
+    using vreal = CCTK_REAL;
+    constexpr std::size_t vsize = 0;
     #ifdef __CUDACC__
     const nvtxRangeId_t range = nvtxRangeStartA("cottonmouth_linear_wave_fill_id");
     #endif
@@ -63,8 +83,9 @@ void cottonmouth_linear_wave_fill_id(CCTK_ARGUMENTS) {
     const auto DZI = (1.0 / CCTK_DELTA_SPACE(2));
     const vreal v_one = 1;
     const vreal v_zero = 0;
-    grid.loop_all_device<VVV_centered[0], VVV_centered[1], VVV_centered[2], vsize>(grid.nghostzones, [=] CCTK_DEVICE(const PointDesc& p) CCTK_ATTRIBUTE_ALWAYS_INLINE {    
-        const vreal x = (p.x + (Arith::iota<vreal>() * p.dx));
+    // cottonmouth_linear_wave_fill_id loop 0
+    grid.loop_all_device<VVV_centered[0], VVV_centered[1], VVV_centered[2]>(grid.nghostzones, [=] CCTK_DEVICE(const PointDesc& p) CCTK_ATTRIBUTE_ALWAYS_INLINE {    
+        const vreal x = p.x;
         const vreal t = cctk_time;
         const GF3D5index stencil_idx_0_0_0_VVV(VVV_layout, p.I);
         vreal x0 = pown<vreal>(wavelength, -1);
@@ -74,10 +95,10 @@ void cottonmouth_linear_wave_fill_id(CCTK_ARGUMENTS) {
         store(gzz, stencil_idx_0_0_0_VVV, (1 + (-(x2))));
         store(gyy, stencil_idx_0_0_0_VVV, (1 + x2));
         x2 = (3.14159265358979 * amplitude * x0 * cos(x1));
-        store(dtkzz, stencil_idx_0_0_0_VVV, (-(x3)));
-        store(dtkyy, stencil_idx_0_0_0_VVV, x3);
-        store(kzz, stencil_idx_0_0_0_VVV, (-(x2)));
-        store(kyy, stencil_idx_0_0_0_VVV, x2);
+        store(dtkyy, stencil_idx_0_0_0_VVV, (-(x3)));
+        store(dtkzz, stencil_idx_0_0_0_VVV, x3);
+        store(kyy, stencil_idx_0_0_0_VVV, (-(x2)));
+        store(kzz, stencil_idx_0_0_0_VVV, x2);
         store(alp, stencil_idx_0_0_0_VVV, 1);
         store(betax, stencil_idx_0_0_0_VVV, 0);
         store(betay, stencil_idx_0_0_0_VVV, 0);

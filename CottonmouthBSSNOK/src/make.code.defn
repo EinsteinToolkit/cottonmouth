@@ -1,3 +1,0 @@
-SRCS = CottonmouthBSSNOK_adm2bssn_pt1.cpp CottonmouthBSSNOK_adm2bssn_pt2.cpp CottonmouthBSSNOK_apply_dissipation.cpp CottonmouthBSSNOK_bssn2adm.cpp CottonmouthBSSNOK_constraints.cpp CottonmouthBSSNOK_enforce_pt1.cpp CottonmouthBSSNOK_enforce_pt2.cpp CottonmouthBSSNOK_rhs.cpp CottonmouthBSSNOK_sync_monitored_constraints.cpp CottonmouthBSSNOK_StateSync_CottonmouthBSSNOK.cpp
-
-SUBDIRS = 
