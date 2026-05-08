@@ -1,0 +1,119 @@
+# Copyright (C) 2026 Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
+# This file is part of Cottonmouth, a suite of astrophysics codes for the Einstein Toolkit.
+# Cottonmouth was created with the Einstein Engine.
+# 
+# Cottonmouth is hosted at: https://github.com/EinsteinToolkit/cottonmouth
+# The Einstein Engine is hosted at: https://github.com/max-morris/EinsteinEngine
+# 
+# Cottonmouth is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Cottonmouth is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+implements: CottonmouthZ4c4m
+inherits: ADMBaseX, Driver, ODESolvers, TmunuBaseX
+USES INCLUDE HEADER: newradx.hxx
+
+public:
+REAL At TYPE=GF TAGS='rhs="CottonmouthZ4c4m::At_rhs" parities={+1 +1 +1  -1 -1 +1  -1 +1 -1  +1 +1 +1  +1 -1 -1  +1 +1 +1}' CENTERING={ VVV }
+{
+    AtDD00, AtDD01, AtDD02, AtDD11, AtDD12, AtDD22
+}
+public:
+REAL At_rhs TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1  -1 -1 +1  -1 +1 -1  +1 +1 +1  +1 -1 -1  +1 +1 +1}' CENTERING={ VVV }
+{
+    At_rhsDD00, At_rhsDD01, At_rhsDD02, At_rhsDD11, At_rhsDD12, At_rhsDD22
+}
+public:
+REAL HamCons TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    HamCons
+}
+public:
+REAL MomCons TYPE=GF TAGS='checkpoint="no" parities={-1 +1 +1  +1 -1 +1  +1 +1 -1}' CENTERING={ VVV }
+{
+    MomConsU0, MomConsU1, MomConsU2
+}
+public:
+REAL Theta TYPE=GF TAGS='rhs="CottonmouthZ4c4m::Theta_rhs" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    Theta
+}
+public:
+REAL Theta_rhs TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    Theta_rhs
+}
+public:
+REAL ZtCons TYPE=GF TAGS='checkpoint="no" parities={-1 +1 +1  +1 -1 +1  +1 +1 -1}' CENTERING={ VVV }
+{
+    ZtConsU0, ZtConsU1, ZtConsU2
+}
+public:
+REAL chi TYPE=GF TAGS='rhs="CottonmouthZ4c4m::chi_rhs" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    chi
+}
+public:
+REAL chi_rhs TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    chi_rhs
+}
+public:
+REAL evo_Gammat TYPE=GF TAGS='rhs="CottonmouthZ4c4m::evo_Gammat_rhs" parities={-1 +1 +1  +1 -1 +1  +1 +1 -1}' CENTERING={ VVV }
+{
+    evo_GammatU0, evo_GammatU1, evo_GammatU2
+}
+public:
+REAL evo_Gammat_rhs TYPE=GF TAGS='checkpoint="no" parities={-1 +1 +1  +1 -1 +1  +1 +1 -1}' CENTERING={ VVV }
+{
+    evo_Gammat_rhsU0, evo_Gammat_rhsU1, evo_Gammat_rhsU2
+}
+public:
+REAL evo_lapse TYPE=GF TAGS='rhs="CottonmouthZ4c4m::evo_lapse_rhs" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    evo_lapse
+}
+public:
+REAL evo_lapse_rhs TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    evo_lapse_rhs
+}
+public:
+REAL evo_shift TYPE=GF TAGS='rhs="CottonmouthZ4c4m::evo_shift_rhs" parities={-1 +1 +1  +1 -1 +1  +1 +1 -1}' CENTERING={ VVV }
+{
+    evo_shiftU0, evo_shiftU1, evo_shiftU2
+}
+public:
+REAL evo_shift_rhs TYPE=GF TAGS='checkpoint="no" parities={-1 +1 +1  +1 -1 +1  +1 +1 -1}' CENTERING={ VVV }
+{
+    evo_shift_rhsU0, evo_shift_rhsU1, evo_shift_rhsU2
+}
+public:
+REAL gt TYPE=GF TAGS='rhs="CottonmouthZ4c4m::gt_rhs" parities={+1 +1 +1  -1 -1 +1  -1 +1 -1  +1 +1 +1  +1 -1 -1  +1 +1 +1}' CENTERING={ VVV }
+{
+    gtDD00, gtDD01, gtDD02, gtDD11, gtDD12, gtDD22
+}
+public:
+REAL gt_rhs TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1  -1 -1 +1  -1 +1 -1  +1 +1 +1  +1 -1 -1  +1 +1 +1}' CENTERING={ VVV }
+{
+    gt_rhsDD00, gt_rhsDD01, gt_rhsDD02, gt_rhsDD11, gt_rhsDD12, gt_rhsDD22
+}
+public:
+REAL trK TYPE=GF TAGS='rhs="CottonmouthZ4c4m::trK_rhs" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    trK
+}
+public:
+REAL trK_rhs TYPE=GF TAGS='checkpoint="no" parities={+1 +1 +1}' CENTERING={ VVV }
+{
+    trK_rhs
+}

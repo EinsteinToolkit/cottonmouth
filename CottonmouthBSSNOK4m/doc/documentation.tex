@@ -57,18 +57,20 @@ It can generate complete CarpetX thorns from simple recipes written in Python.
 
 \item Typecheck the recipe with MyPy.
    \begin{verbatim}
-   mypy recipes/Cottonmouth/bssnok_unsplit_ricci_opt.py
+   mypy recipes/Cottonmouth/bssnok.py
    \end{verbatim}
 
 \item Run the recipe.
    \begin{verbatim}
-   python recipes/Cottonmouth/bssnok_unsplit_ricci_opt.py
+   python recipes/Cottonmouth/bssnok.py [--vacuum] [--fd-order N]
    \end{verbatim}
 \end{itemize}
 
 \section{Parameters}
 
-TBD
+By default, the code is generated with matter terms on. To disable them, run using the --vacuum flag.
+
+By default, the code will be generated with 4th order finite difference stencils and 5th order Kreiss-Oliger dissipation. Use the --fd-order flag to switch this to Nth order finite difference stencils and (N+1)th Kreiss-Oliger dissipation.
 
 % Do not delete next line
 % END CACTUS THORNGUIDE

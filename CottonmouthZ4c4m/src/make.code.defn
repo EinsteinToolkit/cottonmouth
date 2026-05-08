@@ -1,0 +1,23 @@
+# Copyright (C) 2026 Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
+# This file is part of Cottonmouth, a suite of astrophysics codes for the Einstein Toolkit.
+# Cottonmouth was created with the Einstein Engine.
+# 
+# Cottonmouth is hosted at: https://github.com/EinsteinToolkit/cottonmouth
+# The Einstein Engine is hosted at: https://github.com/max-morris/EinsteinEngine
+# 
+# Cottonmouth is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Cottonmouth is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+SRCS = CottonmouthZ4c4m_adm_to_z4c_pt1.cpp CottonmouthZ4c4m_adm_to_z4c_pt2.cpp CottonmouthZ4c4m_z4c_apply_dissipation.cpp CottonmouthZ4c4m_z4c_constraints.cpp CottonmouthZ4c4m_z4c_enforce_pt1.cpp CottonmouthZ4c4m_z4c_enforce_pt2.cpp CottonmouthZ4c4m_z4c_rhs.cpp CottonmouthZ4c4m_z4c_to_adm.cpp CottonmouthZ4c4m_sync_state.cpp CottonmouthZ4c4m_sync_z4c.cpp CottonmouthZ4c4m_sync_z4c_pt2.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_Theta.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_chi.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_trK.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_evo_Gammat.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_gt_xx.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_gt_xy.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_gt_xz.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_gt_yy.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_gt_yz.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_gt_zz.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_At.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_evo_lapse.cpp CottonmouthZ4c4m_z4c_apply_NewRadX_evo_shift.cpp CottonmouthZ4c4m_StateSync_CottonmouthZ4c4m.cpp
+
+SUBDIRS = 
