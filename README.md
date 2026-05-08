@@ -23,3 +23,4 @@ Cottonmouth was authored with the [the Einstein Engine](https://github.com/max-m
 Cottonmouth was authored by Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
 It is licensed under version 3 of the Affero General Public License (AGPLv3).
 
+If you use Cottonmouth in your research, we ask that you cite this repository. When our paper is published, we will update this section accordingly.
