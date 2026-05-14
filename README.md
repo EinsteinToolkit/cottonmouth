@@ -12,7 +12,7 @@ Cottonmouth is ready for production. It currently contains the following thorns:
 - **CottonmouthGaugeWaveID**: Provides gauge wave initial data according to [this formulation](https://arxiv.org/abs/0709.3559).
 - **CottonmouthLinearWaveID**: Provides linear wave initial data according to [this formulation](https://arxiv.org/abs/0709.3559).
 
-Both CottonmouthBSSNOK and CottonmouthZ4c use the *puncture gauge*, with `1+log` lapse and the `$\Gamma$`-driver shift.
+Both CottonmouthBSSNOK and CottonmouthZ4c use the *puncture gauge*, with $1+\log$ lapse and the $\Gamma$-driver shift.
 
 ## Customization
 Cottonmouth was authored with the [the Einstein Engine](https://github.com/max-morris/EinsteinEngine.git). Inside the Einstein Engine repo, you can find the [Cottonmouth recipe group](https://github.com/max-morris/EinsteinEngine/tree/master/recipes/Cottonmouth), which is the "source code" from which Cottonmouth was generated. If you want to customize the stencil order or whether matter terms are enabled, you can use the Einstein Engine to generate your own copy of the thorn, passing these options as generation-time flags. In a future release, we will add the capability to set these parameters at runtime. You can make more advanced customizations by tweaking the recipes yourself.
@@ -27,7 +27,7 @@ These parameter files should be readily adaptable into more interesting simulati
 
 Both CottonmouthBSSNOK and CottonmouthZ4c have a relatively small number of tunable parameters, whose defaults should work well out of the box for most cases, however, there are some parameters which you may want to customize more often. These are:
 
-1. `CottonmouthBSSNOK::eta_B / CottonmouthZ4c::eta_beta`: This parameter controls the `$\Gamma$` driver shift damping coefficient `$\eta$`. Its typically chosen to be of order `$i/M$` where `$M$` is the total ADM mass of the system.
+1. `CottonmouthBSSNOK::eta_B / CottonmouthZ4c::eta_beta`: This parameter controls the $\Gamma$-driver shift damping coefficient $\eta$. Its typically chosen to be of order $1/M$ where $M$ is the total ADM mass of the system.
 2. `Cottonmouth(BSSNOK/Z4c)::dissipation_epsilon`: This parameter controls the strength of the Kreiss-Oliger dissipation filters applied during the evolution.
 3. `Cottonmouth(BSSNOK/Z4c)::apply_NewRadX`: If `true`, applies radiating outer boundary conditions using `NewRadX`.
 
