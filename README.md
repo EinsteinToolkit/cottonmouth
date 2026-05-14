@@ -23,9 +23,9 @@ The best way to get started with your own simulations using Cottonmouth is to lo
 1. Short BBH collision simulations in the `qc0` configuration, using both the BSSNOK and Z4c formulations.
 2. Magnetized TOV star simulation using `AsterX` as the GRMHD driver.
 
-These parameter files should be readily adaptable into more interesting simulations, and include features such as multiple refinement levels with puncture tracking, apparent horizon finding, and GW extraction. Please note that some of the thorns used in these examples are not (yet) officially part of the Einstein Toolkit and can be found in the [SpacetimeX](https://github.com/EinsteinToolkit/SpacetimeX) repository.
+These parameter files should be readily adaptable into more interesting simulations; they include features such as multiple refinement levels with puncture tracking, apparent horizon finding, and GW extraction. Please note that some of the thorns used in these examples are not (yet) officially part of the Einstein Toolkit and can be found in the [SpacetimeX](https://github.com/EinsteinToolkit/SpacetimeX) repository.
 
-Both CottonmouthBSSNOK and CottonmouthZ4c have a relatively small number of tunable parameters, whose defaults should work well out of the box for most cases, however, there are some parameters which you may want to customize more often. These are:
+Both CottonmouthBSSNOK and CottonmouthZ4c have a relatively small number of tunable parameters whose default values should work well in many cases. The most important of these are:
 
 1. `CottonmouthBSSNOK::eta_B / CottonmouthZ4c::eta_beta`: This parameter controls the $\Gamma$-driver shift damping coefficient $\eta$. Its typically chosen to be of order $1/M$ where $M$ is the total ADM mass of the system.
 2. `Cottonmouth(BSSNOK/Z4c)::dissipation_epsilon`: This parameter controls the strength of the Kreiss-Oliger dissipation filters applied during the evolution.
