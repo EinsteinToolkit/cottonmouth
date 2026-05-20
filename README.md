@@ -19,11 +19,11 @@ Cottonmouth was authored with the [the Einstein Engine](https://github.com/max-m
 
 ## Getting started
 
-The best way to get started with your own simulations using Cottonmouth is to look at our [example parameter files](https://github.com/max-morris/EinsteinEngine/tree/master/recipes/Cottonmouth/parfiles), which currently include:
+The best way to get started with your own simulations using Cottonmouth is to look at our [example parameter files](./examples), which currently include:
 1. Short BBH collision simulations in the `qc0` configuration, using both the BSSNOK and Z4c formulations.
 2. Magnetized TOV star simulation using `AsterX` as the GRMHD driver.
 
-These parameter files should be readily adaptable into more interesting simulations; they include features such as multiple refinement levels with puncture tracking, apparent horizon finding, and GW extraction. Please note that some of the thorns used in these examples are not (yet) officially part of the Einstein Toolkit and can be found in the [SpacetimeX](https://github.com/EinsteinToolkit/SpacetimeX) repository.
+These parameter files should be readily adaptable into more interesting simulations; they include features such as multiple refinement levels with puncture tracking, apparent horizon finding, and GW extraction. Please note that some of the thorns used in these examples are not (yet) officially part of the Einstein Toolkit and can be found in the [SpacetimeX](https://github.com/EinsteinToolkit/SpacetimeX) repository. We have included a [thornlist](./examples/cottonmouth.th) in the `examples` folder that will checkout all necessary components to run the example will checkout all necessary components to run the examples.
 
 Both CottonmouthBSSNOK and CottonmouthZ4c have a relatively small number of tunable parameters whose default values should work well in many cases. The most important of these are:
 
