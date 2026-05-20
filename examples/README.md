@@ -2,9 +2,7 @@
 
 This folder contains example files to help you get started with Cottonmouth simulations using the [Einstein Toolkit](https://einsteintoolkit.org/) and [CarpetX](https://github.com/EinsteinToolkit/CarpetX).
 
-## Files
-
-### `cottonmouth.th` — Thornlist
+# `cottonmouth.th` — Thornlist
 
 A [GetComponents](https://github.com/gridaphobe/CRL) thornlist that checks out all the code needed to build and run these example simulations. It includes:
 
@@ -23,7 +21,7 @@ A [GetComponents](https://github.com/gridaphobe/CRL) thornlist that checks out a
 ./GetComponents cottonmouth.th
 ```
 
-### `qc0-bssnok.par` and `qc0-z4c.par`: Quasi-circular binary black hole mergers
+# `qc0-bssnok.par` and `qc0-z4c.par`: Quasi-circular binary black hole mergers
 Quasi-circular binary black hole merger (BSSN-OK)
 
 A Cactus parameter file for evolving an equal-mass, quasi-circular binary black hole (BBH) inspiral through merger using either **`CottonmouthBSSNOK4m`** or **CottonmouthZ4c4m** (4th-order, matter enabled).
@@ -42,7 +40,7 @@ A Cactus parameter file for evolving an equal-mass, quasi-circular binary black 
 | Horizon finding | `AHFinderDirect` (3 horizons) and `PunctureTracker`            |
 | Checkpointing   | openPMD, every 6 hours of wall time                            |
 
-### `mag_TOV.par`: Magnetised Tolman–Oppenheimer–Volkoff neutron star
+# `mag_TOV.par`: Magnetised Tolman–Oppenheimer–Volkoff neutron star
 
 A Cactus parameter file for evolving a stable, magnetised neutron star in equilibrium using **`CottonmouthBSSNOK4m`** coupled to the **AsterX** GRMHD solver.
 
