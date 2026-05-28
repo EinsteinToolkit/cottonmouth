@@ -38,7 +38,7 @@
 #define CCTK_ASSERT(X) if(!(X)) { CCTK_Error(__LINE__, __FILE__, CCTK_THORNSTRING, "Assertion Failure: " #X); }
 using namespace Arith;
 using namespace Loop;
-using std::cbrt,std::fmax,std::fmin,std::sqrt;
+using std::cbrt,std::max,std::min,std::sqrt;
 void z4c_enforce_pt2(CCTK_ARGUMENTS) {
     DECLARE_CCTK_ARGUMENTSX_z4c_enforce_pt2;
     DECLARE_CCTK_PARAMETERS;
