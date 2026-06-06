@@ -60,6 +60,9 @@ void adm2bssn_pt2(CCTK_ARGUMENTS) {
     const auto DXI = (1.0 / CCTK_DELTA_SPACE(0));
     const auto DYI = (1.0 / CCTK_DELTA_SPACE(1));
     const auto DZI = (1.0 / CCTK_DELTA_SPACE(2));
+    CCTK_ASSERT((cctk_nghostzones[0] >= 2));
+    CCTK_ASSERT((cctk_nghostzones[1] >= 2));
+    CCTK_ASSERT((cctk_nghostzones[2] >= 2));
     const vreal v_one = 1;
     const vreal v_zero = 0;
     // adm2bssn_pt2 loop 0
