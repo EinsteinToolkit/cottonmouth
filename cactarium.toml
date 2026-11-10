@@ -1,0 +1,29 @@
+format = 1
+
+[package]
+name = "cottonmouth"
+owners = ["et"]
+description = """
+Cottonmouth: BSSNOK and Z4c spacetime evolution for CarpetX, 4th-order stencils with matter, generated with the Einstein Engine.
+
+CottonmouthBSSNOK4m and CottonmouthZ4c4m (puncture gauge, optional NewRadX radiative \
+boundaries) plus gauge wave and linear wave test initial data.
+"""
+license = "AGPL-3.0-or-later"
+homepage = "https://github.com/EinsteinToolkit/cottonmouth"
+contact = "https://github.com/EinsteinToolkit/tickets/issues"
+readme = "README.md"
+arrangement = "Cottonmouth"
+
+[[works-with]]
+target = "et/cottonmouth-stack"
+range = "^2026.5"
+note = "Minimal stack for running Cottonmouth codes, including the Cottonmouth examples."
+
+[[caveat]]
+thorn = "CottonmouthBSSNOK4m"
+note = "4th-order stencils only; other orders are generated with the Einstein Engine (github.com/max-morris/EinsteinEngine)"
+
+[[caveat]]
+thorn = "CottonmouthZ4c4m"
+note = "4th-order stencils only; other orders are generated with the Einstein Engine (github.com/max-morris/EinsteinEngine)"
