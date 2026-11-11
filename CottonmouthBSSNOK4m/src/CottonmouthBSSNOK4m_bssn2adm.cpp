@@ -82,57 +82,61 @@ void bssn2adm(CCTK_ARGUMENTS) {
     #define kzz_layout VVV_layout
     #define trK_layout VVV_layout
     #define w_layout VVV_layout
-    const auto DXI = (1.0 / CCTK_DELTA_SPACE(0));
-    const auto DYI = (1.0 / CCTK_DELTA_SPACE(1));
-    const auto DZI = (1.0 / CCTK_DELTA_SPACE(2));
+    const auto DX = CCTK_DELTA_SPACE(0);
+    const auto DY = CCTK_DELTA_SPACE(1);
+    const auto DZ = CCTK_DELTA_SPACE(2);
+    const auto DT = cctk_delta_time;
+    const auto DXI = (1.0 / DX);
+    const auto DYI = (1.0 / DY);
+    const auto DZI = (1.0 / DZ);
     const vreal v_one = 1;
     const vreal v_zero = 0;
     // bssn2adm loop 0
     grid.loop_all_device<VVV_centered[0], VVV_centered[1], VVV_centered[2]>(grid.nghostzones, [=] CCTK_DEVICE(const PointDesc& p) CCTK_ATTRIBUTE_ALWAYS_INLINE {    
         const GF3D5index stencil_idx_0_0_0_VVV(VVV_layout, p.I);
-        vreal x47 = access(gtDD00, stencil_idx_0_0_0_VVV); // x47: Dependency! Liveness = 8; [gtDD00, x47, x48, x50, x51, x572, x62, x95]
-        vreal x573 = access(AtDD00, stencil_idx_0_0_0_VVV); // x573: Dependency! Liveness = 9; [AtDD00, x47, x48, x50, x51, x570, x572, x62, x95]
-        vreal x570 = access(w, stencil_idx_0_0_0_VVV); // x570: Dependency! Liveness = 9; [w, x47, x48, x50, x51, x570, x572, x62, x95]
-        vreal x571 = pow2(x570); // x571: Dependency! Liveness = 14; [x47, x48, x50, x51, x570, x571, x572, x574, x581, x582, x583, x584, x62, x95]
-        vreal x572 = pown<vreal>(x571, -1); // x572: Dependency! Liveness = 13; [x47, x48, x50, x51, x571, x572, x574, x581, x582, x583, x584, x62, x95]
-        vreal x574 = access(trK, stencil_idx_0_0_0_VVV); // x574: Dependency! Liveness = 10; [trK, x47, x48, x50, x51, x570, x572, x574, x62, x95]
-        vreal x575 = ((1.0 / 3.0) * x574); // x575: Dependency! Liveness = 12; [x47, x48, x50, x51, x572, x574, x581, x582, x583, x584, x62, x95]
-        store(kxx, stencil_idx_0_0_0_VVV, (x572 * (x573 + (x47 * x575)))); // kxx: Liveness = 5; [kxx, x47, x572, x573, x575]
-        vreal x50 = access(gtDD01, stencil_idx_0_0_0_VVV); // x50: Dependency! Liveness = 8; [gtDD01, x47, x48, x50, x51, x572, x62, x95]
-        vreal x576 = access(AtDD01, stencil_idx_0_0_0_VVV); // x576: Dependency! Liveness = 10; [AtDD01, x47, x48, x50, x51, x570, x572, x574, x62, x95]
-        store(kxy, stencil_idx_0_0_0_VVV, (x572 * (x576 + (x50 * x575)))); // kxy: Liveness = 6; [kxy, x47, x50, x572, x575, x576]
-        vreal x51 = access(gtDD02, stencil_idx_0_0_0_VVV); // x51: Dependency! Liveness = 8; [gtDD02, x47, x48, x50, x51, x572, x62, x95]
-        vreal x577 = access(AtDD02, stencil_idx_0_0_0_VVV); // x577: Dependency! Liveness = 10; [AtDD02, x47, x48, x50, x51, x570, x572, x574, x62, x95]
-        store(kxz, stencil_idx_0_0_0_VVV, (x572 * (x577 + (x51 * x575)))); // kxz: Liveness = 7; [kxz, x47, x50, x51, x572, x575, x577]
-        vreal x578 = access(AtDD11, stencil_idx_0_0_0_VVV); // x578: Dependency! Liveness = 10; [AtDD11, x47, x48, x50, x51, x570, x572, x574, x62, x95]
-        vreal x95 = access(gtDD11, stencil_idx_0_0_0_VVV); // x95: Dependency! Liveness = 14; [gtDD11, x47, x48, x50, x51, x570, x572, x574, x581, x582, x583, x584, x62, x95]
-        store(kyy, stencil_idx_0_0_0_VVV, (x572 * (x578 + (x575 * x95)))); // kyy: Liveness = 8; [kyy, x47, x50, x51, x572, x575, x578, x95]
-        vreal x48 = access(gtDD12, stencil_idx_0_0_0_VVV); // x48: Dependency! Liveness = 8; [gtDD12, x47, x48, x50, x51, x572, x62, x95]
-        vreal x579 = access(AtDD12, stencil_idx_0_0_0_VVV); // x579: Dependency! Liveness = 10; [AtDD12, x47, x48, x50, x51, x570, x572, x574, x62, x95]
-        store(kyz, stencil_idx_0_0_0_VVV, (x572 * (x579 + (x48 * x575)))); // kyz: Liveness = 9; [kyz, x47, x48, x50, x51, x572, x575, x579, x95]
-        vreal x580 = access(AtDD22, stencil_idx_0_0_0_VVV); // x580: Dependency! Liveness = 10; [AtDD22, x47, x48, x50, x51, x570, x572, x574, x62, x95]
-        vreal x62 = access(gtDD22, stencil_idx_0_0_0_VVV); // x62: Dependency! Liveness = 14; [gtDD22, x47, x48, x50, x51, x570, x572, x574, x581, x582, x583, x584, x62, x95]
-        store(kzz, stencil_idx_0_0_0_VVV, (x572 * (x580 + (x575 * x62)))); // kzz: Liveness = 10; [kzz, x47, x48, x50, x51, x572, x575, x580, x62, x95]
-        vreal x581 = access(evo_lapse, stencil_idx_0_0_0_VVV); // x581: Dependency! Liveness = 11; [evo_lapse, x47, x48, x50, x51, x570, x572, x574, x581, x62, x95]
-        vreal x582 = access(evo_shiftU0, stencil_idx_0_0_0_VVV); // x582: Dependency! Liveness = 12; [evo_shiftU0, x47, x48, x50, x51, x570, x572, x574, x581, x582, x62, x95]
-        vreal x583 = access(evo_shiftU1, stencil_idx_0_0_0_VVV); // x583: Dependency! Liveness = 13; [evo_shiftU1, x47, x48, x50, x51, x570, x572, x574, x581, x582, x583, x62, x95]
-        vreal x584 = access(evo_shiftU2, stencil_idx_0_0_0_VVV); // x584: Dependency! Liveness = 14; [evo_shiftU2, x47, x48, x50, x51, x570, x572, x574, x581, x582, x583, x584, x62, x95]
-        store(alp, stencil_idx_0_0_0_VVV, x581); // alp: Liveness = 12; [alp, x47, x48, x50, x51, x572, x581, x582, x583, x584, x62, x95]
-        store(betax, stencil_idx_0_0_0_VVV, x582); // betax: Liveness = 11; [betax, x47, x48, x50, x51, x572, x582, x583, x584, x62, x95]
-        store(betay, stencil_idx_0_0_0_VVV, x583); // betay: Liveness = 10; [betay, x47, x48, x50, x51, x572, x583, x584, x62, x95]
-        store(betaz, stencil_idx_0_0_0_VVV, x584); // betaz: Liveness = 9; [betaz, x47, x48, x50, x51, x572, x584, x62, x95]
-        vreal x585 = (x47 * x572); // x585: Dependency! Liveness = 7; [x47, x48, x50, x51, x572, x62, x95]
-        store(gxx, stencil_idx_0_0_0_VVV, x585); // gxx: Liveness = 9; [gxx, x47, x48, x50, x51, x572, x585, x62, x95]
-        vreal x586 = (x50 * x572); // x586: Dependency! Liveness = 6; [x48, x50, x51, x572, x62, x95]
-        store(gxy, stencil_idx_0_0_0_VVV, x586); // gxy: Liveness = 9; [gxy, x47, x48, x50, x51, x572, x586, x62, x95]
-        vreal x587 = (x51 * x572); // x587: Dependency! Liveness = 5; [x48, x51, x572, x62, x95]
-        store(gxz, stencil_idx_0_0_0_VVV, x587); // gxz: Liveness = 9; [gxz, x47, x48, x50, x51, x572, x587, x62, x95]
-        vreal x588 = (x572 * x95); // x588: Dependency! Liveness = 4; [x48, x572, x62, x95]
-        store(gyy, stencil_idx_0_0_0_VVV, x588); // gyy: Liveness = 9; [gyy, x47, x48, x50, x51, x572, x588, x62, x95]
-        vreal x589 = (x48 * x572); // x589: Dependency! Liveness = 3; [x48, x572, x62]
-        store(gyz, stencil_idx_0_0_0_VVV, x589); // gyz: Liveness = 9; [gyz, x47, x48, x50, x51, x572, x589, x62, x95]
-        vreal x590 = (x572 * x62); // x590: Dependency! Liveness = 2; [x572, x62]
-        store(gzz, stencil_idx_0_0_0_VVV, x590); // gzz: Liveness = 9; [gzz, x47, x48, x50, x51, x572, x590, x62, x95]    
+        vreal x48 = access(gtDD00, stencil_idx_0_0_0_VVV); // x48: Dependency! Liveness = 8; [gtDD00, x101, x48, x49, x50, x51, x546, x59]
+        vreal x547 = access(AtDD00, stencil_idx_0_0_0_VVV); // x547: Dependency! Liveness = 9; [AtDD00, x101, x48, x49, x50, x51, x544, x546, x59]
+        vreal x544 = access(w, stencil_idx_0_0_0_VVV); // x544: Dependency! Liveness = 9; [w, x101, x48, x49, x50, x51, x544, x546, x59]
+        vreal x545 = pow2(x544); // x545: Dependency! Liveness = 14; [x101, x48, x49, x50, x51, x544, x545, x546, x548, x555, x556, x557, x558, x59]
+        vreal x546 = pown<vreal>(x545, -1); // x546: Dependency! Liveness = 13; [x101, x48, x49, x50, x51, x545, x546, x548, x555, x556, x557, x558, x59]
+        vreal x548 = access(trK, stencil_idx_0_0_0_VVV); // x548: Dependency! Liveness = 10; [trK, x101, x48, x49, x50, x51, x544, x546, x548, x59]
+        vreal x549 = ((1.0 / 3.0) * x548); // x549: Dependency! Liveness = 12; [x101, x48, x49, x50, x51, x546, x548, x555, x556, x557, x558, x59]
+        store(kxx, stencil_idx_0_0_0_VVV, (x546 * (x547 + (x48 * x549)))); // kxx: Liveness = 5; [kxx, x48, x546, x547, x549]
+        vreal x50 = access(gtDD01, stencil_idx_0_0_0_VVV); // x50: Dependency! Liveness = 8; [gtDD01, x101, x48, x49, x50, x51, x546, x59]
+        vreal x550 = access(AtDD01, stencil_idx_0_0_0_VVV); // x550: Dependency! Liveness = 10; [AtDD01, x101, x48, x49, x50, x51, x544, x546, x548, x59]
+        store(kxy, stencil_idx_0_0_0_VVV, (x546 * (x550 + (x50 * x549)))); // kxy: Liveness = 6; [kxy, x48, x50, x546, x549, x550]
+        vreal x51 = access(gtDD02, stencil_idx_0_0_0_VVV); // x51: Dependency! Liveness = 8; [gtDD02, x101, x48, x49, x50, x51, x546, x59]
+        vreal x551 = access(AtDD02, stencil_idx_0_0_0_VVV); // x551: Dependency! Liveness = 10; [AtDD02, x101, x48, x49, x50, x51, x544, x546, x548, x59]
+        store(kxz, stencil_idx_0_0_0_VVV, (x546 * (x551 + (x51 * x549)))); // kxz: Liveness = 7; [kxz, x48, x50, x51, x546, x549, x551]
+        vreal x101 = access(gtDD11, stencil_idx_0_0_0_VVV); // x101: Dependency! Liveness = 8; [gtDD11, x101, x48, x49, x50, x51, x546, x59]
+        vreal x552 = access(AtDD11, stencil_idx_0_0_0_VVV); // x552: Dependency! Liveness = 10; [AtDD11, x101, x48, x49, x50, x51, x544, x546, x548, x59]
+        store(kyy, stencil_idx_0_0_0_VVV, (x546 * (x552 + (x101 * x549)))); // kyy: Liveness = 8; [kyy, x101, x48, x50, x51, x546, x549, x552]
+        vreal x49 = access(gtDD12, stencil_idx_0_0_0_VVV); // x49: Dependency! Liveness = 8; [gtDD12, x101, x48, x49, x50, x51, x546, x59]
+        vreal x553 = access(AtDD12, stencil_idx_0_0_0_VVV); // x553: Dependency! Liveness = 10; [AtDD12, x101, x48, x49, x50, x51, x544, x546, x548, x59]
+        store(kyz, stencil_idx_0_0_0_VVV, (x546 * (x553 + (x49 * x549)))); // kyz: Liveness = 9; [kyz, x101, x48, x49, x50, x51, x546, x549, x553]
+        vreal x554 = access(AtDD22, stencil_idx_0_0_0_VVV); // x554: Dependency! Liveness = 10; [AtDD22, x101, x48, x49, x50, x51, x544, x546, x548, x59]
+        vreal x59 = access(gtDD22, stencil_idx_0_0_0_VVV); // x59: Dependency! Liveness = 14; [gtDD22, x101, x48, x49, x50, x51, x544, x546, x548, x555, x556, x557, x558, x59]
+        store(kzz, stencil_idx_0_0_0_VVV, (x546 * (x554 + (x549 * x59)))); // kzz: Liveness = 10; [kzz, x101, x48, x49, x50, x51, x546, x549, x554, x59]
+        vreal x555 = access(evo_lapse, stencil_idx_0_0_0_VVV); // x555: Dependency! Liveness = 11; [evo_lapse, x101, x48, x49, x50, x51, x544, x546, x548, x555, x59]
+        vreal x556 = access(evo_shiftU0, stencil_idx_0_0_0_VVV); // x556: Dependency! Liveness = 12; [evo_shiftU0, x101, x48, x49, x50, x51, x544, x546, x548, x555, x556, x59]
+        vreal x557 = access(evo_shiftU1, stencil_idx_0_0_0_VVV); // x557: Dependency! Liveness = 13; [evo_shiftU1, x101, x48, x49, x50, x51, x544, x546, x548, x555, x556, x557, x59]
+        vreal x558 = access(evo_shiftU2, stencil_idx_0_0_0_VVV); // x558: Dependency! Liveness = 14; [evo_shiftU2, x101, x48, x49, x50, x51, x544, x546, x548, x555, x556, x557, x558, x59]
+        store(alp, stencil_idx_0_0_0_VVV, x555); // alp: Liveness = 12; [alp, x101, x48, x49, x50, x51, x546, x555, x556, x557, x558, x59]
+        store(betax, stencil_idx_0_0_0_VVV, x556); // betax: Liveness = 11; [betax, x101, x48, x49, x50, x51, x546, x556, x557, x558, x59]
+        store(betay, stencil_idx_0_0_0_VVV, x557); // betay: Liveness = 10; [betay, x101, x48, x49, x50, x51, x546, x557, x558, x59]
+        store(betaz, stencil_idx_0_0_0_VVV, x558); // betaz: Liveness = 9; [betaz, x101, x48, x49, x50, x51, x546, x558, x59]
+        vreal x559 = (x48 * x546); // x559: Dependency! Liveness = 7; [x101, x48, x49, x50, x51, x546, x59]
+        store(gxx, stencil_idx_0_0_0_VVV, x559); // gxx: Liveness = 9; [gxx, x101, x48, x49, x50, x51, x546, x559, x59]
+        vreal x560 = (x50 * x546); // x560: Dependency! Liveness = 6; [x101, x49, x50, x51, x546, x59]
+        store(gxy, stencil_idx_0_0_0_VVV, x560); // gxy: Liveness = 9; [gxy, x101, x48, x49, x50, x51, x546, x560, x59]
+        vreal x561 = (x51 * x546); // x561: Dependency! Liveness = 5; [x101, x49, x51, x546, x59]
+        store(gxz, stencil_idx_0_0_0_VVV, x561); // gxz: Liveness = 9; [gxz, x101, x48, x49, x50, x51, x546, x561, x59]
+        vreal x562 = (x101 * x546); // x562: Dependency! Liveness = 4; [x101, x49, x546, x59]
+        store(gyy, stencil_idx_0_0_0_VVV, x562); // gyy: Liveness = 9; [gyy, x101, x48, x49, x50, x51, x546, x562, x59]
+        vreal x563 = (x49 * x546); // x563: Dependency! Liveness = 3; [x49, x546, x59]
+        store(gyz, stencil_idx_0_0_0_VVV, x563); // gyz: Liveness = 9; [gyz, x101, x48, x49, x50, x51, x546, x563, x59]
+        vreal x564 = (x546 * x59); // x564: Dependency! Liveness = 2; [x546, x59]
+        store(gzz, stencil_idx_0_0_0_VVV, x564); // gzz: Liveness = 9; [gzz, x101, x48, x49, x50, x51, x546, x564, x59]    
     });
     #ifdef __CUDACC__
     nvtxRangeEnd(range);

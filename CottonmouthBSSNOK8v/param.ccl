@@ -1,0 +1,85 @@
+# Copyright (C) 2026 Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
+# This file is part of Cottonmouth, a suite of astrophysics codes for the Einstein Toolkit.
+# Cottonmouth was created with the Einstein Engine.
+# 
+# Cottonmouth is hosted at: https://github.com/EinsteinToolkit/cottonmouth
+# The Einstein Engine is hosted at: https://github.com/max-morris/EinsteinEngine
+# 
+# Cottonmouth is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Cottonmouth is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+restricted:
+REAL eta_b "Standard Gamma driver eta gauge parameter. Must be of order 2 / M_ADM" 
+{
+* :: ""
+} 2.0
+restricted:
+REAL conformal_factor_floor "The conformal factor W will never be smaller than this value" 
+{
+* :: ""
+} 1e-06
+restricted:
+REAL evolved_lapse_floor "The evolved lapse will never be smaller than this value" 
+{
+* :: ""
+} 1e-08
+restricted:
+REAL dissipation_epsilon "The ammount of dissipation to add. Should be in the [0, 1/3[ range" 
+{
+* :: ""
+} 0.32
+restricted:
+BOOLEAN apply_NewRadX "Apply NewRadX boundary conditions" 
+{
+
+} false
+restricted:
+REAL radpower_chi "NewRadX radpower for w" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_gt "NewRadX radpower for gt_ij" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_At "NewRadX radpower for At_ij" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_trK "NewRadX radpower for the trace of K_ij" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_ConfConnect "NewRadX radpower Gamma^i" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_evo_lapse "NewRadX radpower for the lapse, alpha" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_evo_shift "NewRadX radpower for the shift, beta^i" 
+{
+* :: ""
+} 1.0
+restricted:
+REAL radpower_shiftB "NewRadX radpower for the aux. shift vector B^i" 
+{
+* :: ""
+} 1.0
