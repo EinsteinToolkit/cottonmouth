@@ -21,6 +21,23 @@ readme = "README.md"
 arrangement = "Cottonmouth"
 
 [[works-with]]
-target = "et/cottonmouth-stack"
-range = "^2026.5"
+target = "et/cottonmouth-stack@^2026.5"
 note = "Minimal stack for running Cottonmouth codes, including the Cottonmouth examples."
+
+# Dependencies, from the CCL of the thorns at this commit: for each requirement this package
+# doesn't meet itself, the package and thorns that meet it in et/cottonmouth-stack 2026.5.0.
+# Ranges are patch ranges floored at the versions built with.
+
+[[dependency]]
+target = "et/carpetx@~2026.5.0"
+needs = ["CarpetX", "ADMBaseX", "TmunuBaseX", "ODESolvers", "Arith", "Loop"]
+note = "CarpetX as the driver; the generated sources also include CarpetX/src/timer.hxx by path."
+
+[[dependency]]
+target = "et/amrex@~2026.5.0"
+needs = ["AMReX"]
+
+[[dependency]]
+target = "et/spacetimex@~2026.5.0"
+needs = ["NewRadX"]
+note = "NewRadX, for radiative boundary conditions."
