@@ -1,0 +1,21 @@
+format = 2
+
+[sim]
+name = "cottonmouth-sims"
+owners = ["et"]
+description = """
+Cottonmouth's example simulations, converted from the parameter files in examples/, on \
+et/cottonmouth-stack with Cottonmouth at et/cottonmouth@2026.5.1.
+
+- qc0-bssnok: QC-0 binary black hole merger with CottonmouthBSSNOK4m
+- qc0-z4c: QC-0 binary black hole merger with CottonmouthZ4c4m
+- mag-tov: a magnetized TOV neutron star with CottonmouthBSSNOK4m and AsterX GRMHD
+
+Released with sim-vX.Y.Z tags, numbered after the Cottonmouth release they run."""
+# The sims follow their own tags, separate from the package's vX.Y.Z.
+tag-pattern = "sim-v{major}.{minor}.{patch}"
+
+[sim.files]
+qc0-bssnok = "examples/sims/qc0-bssnok.sim"
+qc0-z4c = "examples/sims/qc0-z4c.sim"
+mag-tov = "examples/sims/mag-tov.sim"
