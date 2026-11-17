@@ -43,15 +43,6 @@ Cottonmouth/CottonmouthZ4c4m
 
 !TARGET      = Cactus/arrangements
 !TYPE        = git
-!URL         = https://bitbucket.org/einsteintoolkit/einsteininitialdata.git
-!REPO_PATH   = $2
-!REPO_BRANCH = ET_2026_05
-!REPO_COMMIT = fee29aa7737de582219dc72f4d498743be7ffdcc
-!CHECKOUT   =
-EinsteinInitialData/TwoPuncturesX
-
-!TARGET      = Cactus/arrangements
-!TYPE        = git
 !URL         = https://bitbucket.org/canuda/canudax.git
 !REPO_PATH   = $2
 !REPO_BRANCH = ET_2026_05
@@ -297,6 +288,7 @@ SpacetimeX/Multipole
 SpacetimeX/NewRadX
 SpacetimeX/PunctureTracker
 SpacetimeX/SphericalSurface
+SpacetimeX/TwoPuncturesX
 
 !TARGET      = Cactus/arrangements
 !TYPE        = git
@@ -749,11 +741,6 @@ name = "canudax"
 url = "https://bitbucket.org/canuda/canudax.git"
 ref = "ET_2026_05"
 commit = "0a54a1b1e4d753933cf718da144d298f5c6c2bbc"
-[[repo]]
-name = "einsteininitialdata"
-url = "https://bitbucket.org/einsteintoolkit/einsteininitialdata.git"
-ref = "ET_2026_05"
-commit = "fee29aa7737de582219dc72f4d498743be7ffdcc"
 [[repo]]
 name = "flesh"
 url = "https://bitbucket.org/cactuscode/cactus.git"
