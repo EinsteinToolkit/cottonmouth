@@ -1,0 +1,23 @@
+# Copyright (C) 2026 Lucas Timotheo Sanches, Max Morris, and Steven R. Brandt.
+# This file is part of Cottonmouth, a suite of astrophysics codes for the Einstein Toolkit.
+# Cottonmouth was created with the Einstein Engine.
+# 
+# Cottonmouth is hosted at: https://github.com/EinsteinToolkit/cottonmouth
+# The Einstein Engine is hosted at: https://github.com/max-morris/EinsteinEngine
+# 
+# Cottonmouth is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Cottonmouth is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+SRCS = CottonmouthBSSNOK8v_adm2bssn_pt1.cpp CottonmouthBSSNOK8v_adm2bssn_pt2.cpp CottonmouthBSSNOK8v_apply_dissipation.cpp CottonmouthBSSNOK8v_bssn2adm.cpp CottonmouthBSSNOK8v_constraints.cpp CottonmouthBSSNOK8v_enforce_pt1.cpp CottonmouthBSSNOK8v_enforce_pt2.cpp CottonmouthBSSNOK8v_rhs.cpp CottonmouthBSSNOK8v_sync_bssn.cpp CottonmouthBSSNOK8v_sync_bssn_pt2.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_w.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_gt_xx.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_gt_xy.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_gt_xz.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_gt_yy.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_gt_yz.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_gt_zz.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_At.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_trK.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_ConfConnect.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_evo_lapse.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_evo_shift.cpp CottonmouthBSSNOK8v_bssnok_apply_NewRadX_shift_B.cpp CottonmouthBSSNOK8v_StateSync_CottonmouthBSSNOK8v.cpp
+
+SUBDIRS = 
